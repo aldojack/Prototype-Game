@@ -10,6 +10,9 @@ public class Player : MonoBehaviour
     private float verticalInput;
     [SerializeField]
     private GameObject ninjaStarPrefab;
+    [SerializeField]
+    private int _ninjaAmmo = 10;
+
     private bool isGrounded = true;
     
     [SerializeField]
@@ -23,6 +26,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Transform _cameraPos;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +37,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Delete comment
         PlayerMovement();
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -47,8 +52,10 @@ public class Player : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal") * playerSpeed;
         verticalInput = Input.GetAxis("Vertical") * playerSpeed;
 
-        Vector3 direction = new Vector3(horizontalInput, 0, verticalInput);
-        transform.Translate(direction * Time.deltaTime * playerSpeed);
+        Vector3 direction = new Vector3(horizontalInput, _rb.velocity.y, verticalInput);
+        //_rb.AddForce(direction * Time.deltaTime * playerSpeed);
+
+        _rb.velocity = direction;
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
@@ -64,7 +71,7 @@ public class Player : MonoBehaviour
         }
 
         //Restrict player movement based on camera position
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, _cameraPos.position.x - 12f, 152.5f), transform.position.y, transform.position.z);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, _cameraPos.position.x - 8f, 152.5f), transform.position.y, transform.position.z);
 
         //Restrict player movement so can't fall off sides
         transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Clamp(transform.position.z,-3f,5f));
@@ -73,8 +80,18 @@ public class Player : MonoBehaviour
 
     void PlayerFire()
     {
-        Vector3 firePos = new Vector3(transform.position.x + 2f, transform.position.y, transform.position.z);
-        Instantiate(ninjaStarPrefab, firePos, Quaternion.identity);
+        if (_ninjaAmmo > 0)
+        {
+            _ninjaAmmo--;
+            Vector3 firePos = new Vector3(transform.position.x + 2f, transform.position.y, transform.position.z);
+            Instantiate(ninjaStarPrefab, firePos, Quaternion.identity);
+        }
+
+        else
+        {
+            _ninjaAmmo = 0;
+        }
+        
     }
 
     private void OnCollisionEnter(Collision collision)

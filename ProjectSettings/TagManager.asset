@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ground
   - Moving Wall
+  - Ninja Stars
+  - Obstacle
   layers:
   - Default
   - TransparentFX
