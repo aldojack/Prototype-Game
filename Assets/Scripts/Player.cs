@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     private GameObject ninjaStarPrefab;
     [SerializeField]
     private int _ninjaAmmo = 10;
+    [SerializeField]
     private Animator playerAnim;
 
     [SerializeField]
@@ -28,6 +29,7 @@ public class Player : MonoBehaviour
     private Rigidbody _rb;
     [SerializeField]
     private Transform _cameraPos;
+    private SpawnManager _spawnManager;
 
     // Start is called before the first frame update
     void Start()
@@ -35,18 +37,28 @@ public class Player : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         Physics.gravity *= gravityModifier;
         playerAnim = GetComponentInChildren<Animator>();
+        _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+        if (_spawnManager == null)
+        {
+            Debug.LogError("Spawn Manager does not exist in Player Script");
+        }
+
+        _spawnManager.StartEnemySpawn();
     }
 
     // Update is called once per frame
     void Update()
     {
-        PlayerMovement();
-
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             PlayerFire();
         }
 
+    }
+
+    private void FixedUpdate()
+    {
+        PlayerMovement();
     }
 
     void PlayerMovement()
@@ -57,18 +69,21 @@ public class Player : MonoBehaviour
         Vector3 direction = new Vector3(horizontalInput, _rb.velocity.y, verticalInput);
         _rb.velocity = direction;
 
-        float backwards = 180f;
-        float forwards = 0f;
 
-
+        //Controls position character faces with animation
         if (horizontalInput > 0f)
         {
+            
+            float forwards = 0f;
+
             playerAnim.SetBool("Moving", true);
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, forwards, transform.eulerAngles.z);
         }
 
         else if (horizontalInput <0f)
         {
+            float backwards = 180f;
+
             playerAnim.SetBool("Moving", true);
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, backwards, transform.eulerAngles.z);
 
@@ -83,7 +98,8 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            playerAnim.SetBool("OffGround", true);
+            playerAnim.SetBool("IsGrounded", false);
+            playerAnim.SetFloat("VelocityY", 1 * Mathf.Sign(_rb.velocity.y));
             _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
             isGrounded = false;
             canDoubleJump = true;
@@ -109,7 +125,7 @@ public class Player : MonoBehaviour
         {
             _ninjaAmmo--;
             playerAnim.SetTrigger("Attack1Trigger");
-            Vector3 firePos = new Vector3(transform.position.x + 2f, transform.position.y, transform.position.z);
+            Vector3 firePos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             Instantiate(ninjaStarPrefab, firePos, Quaternion.identity);
             playerAnim.SetTrigger("StarThrown");
         }
@@ -127,7 +143,8 @@ public class Player : MonoBehaviour
         {
             
             isGrounded = true;
-            playerAnim.SetBool("OffGround", false);
+            playerAnim.SetBool("IsGrounded", true);
+            playerAnim.SetFloat("VelocityY", 0);
         }
     }
 }

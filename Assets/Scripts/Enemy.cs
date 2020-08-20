@@ -6,17 +6,18 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField]
     private Transform player;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.Find("Player").GetComponent<Transform>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        EnemyFollows();
+        //EnemyFollows(); 
     }
 
     void EnemyFollows()
@@ -31,5 +32,7 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
             Destroy(other.gameObject);
         }
+
+
     }
 }
