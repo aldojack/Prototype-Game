@@ -10,14 +10,9 @@ public class DetectCollision : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        enemyAnim = GetComponentInParent<Animator>();    
+        enemyAnim = GetComponentInChildren<Animator>();    
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnCollisionEnter(Collision collision)
     {
