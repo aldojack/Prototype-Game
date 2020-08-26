@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6423102088676592746}
   m_Layer: 0
   m_Name: Ninja Stars 1
-  m_TagString: Untagged
+  m_TagString: Ninja Stars
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

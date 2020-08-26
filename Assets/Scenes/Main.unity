@@ -120,7 +120,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 77036c81cec7f034b826a9edd8cdd617, type: 2}
 --- !u!4 &52691635 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 728f6ad2b27850b428c6447c047db511,
@@ -222,7 +222,7 @@ GameObject:
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &163404994
 Transform:
@@ -453,7 +453,7 @@ GameObject:
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &341075892
 Transform:
@@ -584,8 +584,8 @@ GameObject:
   m_Name: Wall Static
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &475487163
 Transform:
@@ -692,7 +692,7 @@ GameObject:
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &478728150
 Transform:
@@ -842,7 +842,7 @@ GameObject:
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &649064223
 Transform:
@@ -958,20 +958,28 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1170394707, guid: 252fa129750838b4cb7491e7e2164b55, type: 3}
+      propertyPath: m_BaseOffset
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1170394707, guid: 252fa129750838b4cb7491e7e2164b55, type: 3}
+      propertyPath: m_AutoTraverseOffMeshLink
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7845725151897765414, guid: 252fa129750838b4cb7491e7e2164b55,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.29
+      value: -2.85
       objectReference: {fileID: 0}
     - target: {fileID: 7845725151897765414, guid: 252fa129750838b4cb7491e7e2164b55,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.03
+      value: 9.79
       objectReference: {fileID: 0}
     - target: {fileID: 7845725151897765414, guid: 252fa129750838b4cb7491e7e2164b55,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.35638237
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 7845725151897765414, guid: 252fa129750838b4cb7491e7e2164b55,
         type: 3}
@@ -1653,7 +1661,7 @@ GameObject:
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1099810459
 Transform:
@@ -1785,7 +1793,7 @@ GameObject:
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1210038597
 Transform:
@@ -1905,7 +1913,7 @@ GameObject:
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1257613095
 Transform:
@@ -2025,7 +2033,7 @@ GameObject:
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1339200955
 Transform:
@@ -2133,7 +2141,7 @@ GameObject:
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1354776840
 Transform:
@@ -2259,7 +2267,7 @@ GameObject:
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1367184981
 Transform:
@@ -2463,7 +2471,7 @@ GameObject:
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1691548357
 Transform:
@@ -2577,7 +2585,7 @@ GameObject:
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1720399253
 Transform:
@@ -2697,7 +2705,7 @@ GameObject:
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1778402222
 Transform:
@@ -3011,6 +3019,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Moving Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1242987710953668931, guid: 6e1b5af430b69c4408cef0bbaf74b94c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1242987710953668931, guid: 6e1b5af430b69c4408cef0bbaf74b94c,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e1b5af430b69c4408cef0bbaf74b94c, type: 3}
