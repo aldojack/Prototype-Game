@@ -33,7 +33,7 @@ public class SpawnManager : MonoBehaviour
 
         while(!_stopSpawn)
         {
-            Vector3 spawnPos = _player.transform.position + new Vector3(12f, 8f, 0f);
+            Vector3 spawnPos = _player.transform.position + new Vector3(12f, 9.79f, 0f);
             Instantiate(_enemyPrefab, spawnPos, Quaternion.identity);
             yield return new WaitForSeconds(Random.Range(10f,15f));
         }
