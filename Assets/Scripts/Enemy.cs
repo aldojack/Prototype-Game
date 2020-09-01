@@ -179,6 +179,7 @@ public class Enemy : MonoBehaviour
             enemyAnim.SetBool("Moving", false);
             enemyAnim.SetBool("Grounded", true);
             StartCoroutine(EnableNavMesh());
+            //Test
         }
     }
 
